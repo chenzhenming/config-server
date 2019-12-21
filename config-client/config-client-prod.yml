@@ -1,8 +1,5 @@
 spring:
     profiles: prod
-  application: 
-    name: config-client
-    
   application:
     name: user-service-provider
   zipkin:
