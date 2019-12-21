@@ -1,10 +1,27 @@
-server: 
-  port: 8201 
 spring:
-  profiles: prod
-  application: 
-    name: config-client
-eureka: 
-  client: 
-    service-url: 
-      defaultZone: http://localhost:7001/eureka/   
+  application:
+    name: user-service-provider
+  zipkin:
+    base-url: http://localhost:9530  # zipkin服务端地址
+  sleuth:
+    sampler:
+      percentage: 1.0     #sleuth采样率，默认为0.1，值越大收集越及时，但性能影响也越大
+  datasource:
+    url: jdbc:mysql://127.0.0.1/springcloud?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
