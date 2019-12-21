@@ -1,4 +1,8 @@
 spring:
+    profiles: prod
+  application: 
+    name: config-client
+    
   application:
     name: user-service-provider
   zipkin:
@@ -18,9 +22,6 @@ spring:
           auto: update
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
-  profiles: prod
-  application: 
-    name: config-client
 
 eureka:
   client:
